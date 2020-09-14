@@ -62,7 +62,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ChatBox chats={this.state.chats} />
+        {/* Add the ChatBox component here and pass the chats from the state to it as a prop */}
 
         {this.state.user ? (
           <InputBox
@@ -75,7 +75,7 @@ class App extends React.Component {
           />
         ) : null}
 
-        <LoginPanel user={this.state.user} loginHandler={this.loginHandler} />
+        {/* Add the LoginPanel component here and pass user from the state and loginHandler to it as a prop */}
       </div>
     );
   }
