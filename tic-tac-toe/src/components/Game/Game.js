@@ -2,7 +2,7 @@ import React from 'react';
 
 import Board from '../Board/Board';
 
-import styles from './Game.module.scss';
+import './Game.scss';
 
 class Game extends React.Component {
   state = {
@@ -15,7 +15,7 @@ class Game extends React.Component {
     xIsNext: true
   };
 
-  calculateWinner(squares) {
+  calculateWinner = (squares) => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -37,9 +37,9 @@ class Game extends React.Component {
       }
     }
     return null;
-  }
+  };
 
-  handleClick(i) {
+  handleClick = (i) => {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -56,14 +56,14 @@ class Game extends React.Component {
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext
     });
-  }
+  };
 
-  jumpTo(step) {
+  jumpTo = (step) => {
     this.setState({
       stepNumber: step,
       xIsNext: step % 2 === 0
     });
-  }
+  };
 
   render() {
     const history = this.state.history;
@@ -87,14 +87,11 @@ class Game extends React.Component {
     }
 
     return (
-      <div className={styles.game}>
-        <div className={styles.gameBoard}>
-          <Board
-            squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
-          />
+      <div className='game'>
+        <div className='gameBoard'>
+          <Board squares={current.squares} onClick={this.handleClick} />
         </div>
-        <div className={styles.gameInfo}>
+        <div className='gameInfo'>
           <div>{status}</div>
           <ol>{moves}</ol>
         </div>
