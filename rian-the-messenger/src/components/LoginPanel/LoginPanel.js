@@ -16,7 +16,7 @@ const LoginPanel = (props) => {
     );
   }
 
-  return <div>{loginField}</div>;
+  return <div className='loginPanel'>{loginField}</div>;
 };
 
 export default LoginPanel;

@@ -2,7 +2,7 @@ import React from 'react';
 
 const InputBox = (props) => {
   return (
-    <div>
+    <div className='inputBox'>
       <form onSubmit={props.onSubmit}>
         <input onChange={props.onChange} value={props.inputValue}></input>
         {props.error ? <p>{props.writeError}</p> : null}
